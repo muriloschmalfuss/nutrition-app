@@ -1,0 +1,26 @@
+<form [formGroup]="productFrom" (ngSubmit)="onSubmit()" S>
+
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name">
+
+  <label for="calories">Calories: </label>
+  <input id="calories" type="text" formControlName="calories">
+
+ <label for="total_fat">Total Fat: </label>
+  <input id="total_fat" type="text" formControlName="total_fat">
+
+ <label for="cholesterol">Cholesterol: </label>
+  <input id="cholesterol" type="text" formControlName="cholesterol">
+
+ <label for="sodium">Sodium: </label>
+  <input id="sodium" type="text" formControlName="sodium">
+
+ <label for="total_carbohydrate">Total Carbohydrate: </label>
+  <input id="total_carbohydrate" type="text" formControlName="total_carbohydrate">
+
+  <label for="protein">Protein: </label>
+  <input id="protein" type="text" formControlName="protein">
+
+  <button type="submit">Save</button>
+
+</form>
