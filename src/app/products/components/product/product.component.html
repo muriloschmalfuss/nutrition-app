@@ -1,10 +1,27 @@
-<div class="border-black border-1 border p-4">
-  <p>Nutrition Facts</p>
-  <p>{{product.name}}</p>
-  <p>Calories {{product.calories}}</p>
-  <p>Total Fat {{product.total_fat}}</p>
-  <p>Cholesterol {{product.cholesterol}}</p>
-  <p>Sodium {{product.sodium}}</p>
-  <p>Total Carbohydrate {{product.total_carbohydrate}}</p>
-  <p>Protein {{product.protein}}</p>
+<div class="border-black border-1 border p-4 w-100">
+  <p class="text-center">INFORMAÇÃO NUTRICIONAL</p>
+  <p class="text-center">{{product.name}}</p>
+  <table class="table">
+    <tbody>
+    <tr>
+      <td>Valor energético (kcal)</td>
+      <td>{{product.calories}}</td>
+    </tr>
+    <tr>
+      <td>Gorduras totais (g)</td>
+      <td>{{product.total_fat}}</td>
+    </tr>
+    <tr>
+      <td>Sódio (mg)</td>
+      <td>{{product.sodium}}</td>
+    </tr>
+    <tr>
+      <td>Carboidratos totais (g)</td>
+      <td>{{product.total_carbohydrate}}</td>
+    </tr>
+    <tr>
+      <td>Proteínas (g)</td>
+      <td>{{product.protein}}</td>
+    </tr>
+  </table>
 </div>

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ProductService} from "../../services/product.service";
 import {Subscription} from "rxjs";
-import {Product} from "../../models/product";
+import {Product} from "../../../shared/types/product";
 
 @Component({
   selector: 'app-form',

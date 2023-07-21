@@ -2,6 +2,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {ProductListComponent} from "./components/product-list/product-list.component";
 import {NgModule} from "@angular/core";
 import {FormComponent} from "./components/form/form.component";
+import {authGuard} from "../shared/guard/auth.guard";
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: FormComponent
+    component: FormComponent,
+    canActivate: [authGuard]
   }
 ]
 
