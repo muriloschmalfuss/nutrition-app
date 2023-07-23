@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProductService} from "../../services/product.service";
+import {ProductService} from "../../../shared/services/product.service";
 import {Product} from "../../../shared/types/product";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'app-product-list',
@@ -10,10 +11,15 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit, OnDestroy {
+  displayedColumns: string[] = ['name', 'calories', 'total_fat', 'cholesterol', 'sodium', 'total_carbohydrate', 'protein'];
   products: Product[] = [];
   serviceSub: Subscription = new Subscription();
 
-  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private authService: AuthService,
+    private productService: ProductService,
+    private router: Router,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -32,5 +38,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   goToAddProduct() {
     this.router.navigate(['add'], {relativeTo: this.route});
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 }

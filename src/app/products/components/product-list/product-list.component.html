@@ -1,6 +1,69 @@
-<button (click)="goToAddProduct()">Adicionar</button>
+<div class="w-75 mx-auto mt-5">
 
-<div class="d-flex gap-5 flex-wrap justify-content-start mx-3">
-  <app-product *ngFor="let product of products" [product]="product">
-  </app-product>
+  <div class="d-flex justify-content-between">
+    <button mat-raised-button color="primary" (click)="goToAddProduct()">Adicionar</button>
+    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+  </div>
+
+  <table mat-table [dataSource]="products" matSort class="mat-elevation-z8 mt-5">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+        Name
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Calories Column -->
+    <ng-container matColumnDef="calories">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by calories">
+        Calories
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.calories}} </td>
+    </ng-container>
+
+    <!-- Total Fat Column -->
+    <ng-container matColumnDef="total_fat">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by total_fat">
+        Total Fat
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.total_fat}} </td>
+    </ng-container>
+
+    <!-- Total Cholesterol -->
+    <ng-container matColumnDef="cholesterol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by cholesterol">
+        Cholesterol
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.cholesterol}} </td>
+    </ng-container>
+
+    <!-- Total Sodium -->
+    <ng-container matColumnDef="sodium">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by sodium">
+        Sodium
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.sodium}} </td>
+    </ng-container>
+
+    <!-- Total Total Carbohydrate -->
+    <ng-container matColumnDef="total_carbohydrate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by total_carbohydrate">
+        Total Carbohydrate
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.total_carbohydrate}} </td>
+    </ng-container>
+
+    <!-- Total Protein -->
+    <ng-container matColumnDef="protein">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by protein">
+        Protein
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>

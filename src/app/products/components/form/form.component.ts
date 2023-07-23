@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {ProductService} from "../../services/product.service";
+import {ProductService} from "../../../shared/services/product.service";
 import {Subscription} from "rxjs";
 import {Product} from "../../../shared/types/product";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form',
@@ -12,7 +14,7 @@ import {Product} from "../../../shared/types/product";
 export class FormComponent {
   serviceSub = new Subscription();
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private snackBar: MatSnackBar, private router: Router) {
   }
 
   productFrom = new FormGroup({
@@ -26,10 +28,18 @@ export class FormComponent {
   })
 
   onSubmit() {
-    this.serviceSub = this.productService.addProduct(this.productFrom.getRawValue() as Product).subscribe({
-      next(response) {
-
+    this.serviceSub = this.productService.addProduct(this.productFrom.getRawValue() as Product).subscribe(
+      (response) => {
+        this.snackBar.open('Sucesso', 'Close', {
+          duration: 3000
+        });
+        this.router.navigate(['/products'])
+      },
+      (err) => {
+        this.snackBar.open('Error', 'Close', {
+          duration: 3000
+        });
       }
-    });
+    );
   }
 }

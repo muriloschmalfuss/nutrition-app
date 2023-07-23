@@ -1,26 +1,40 @@
-<form [formGroup]="productFrom" (ngSubmit)="onSubmit()" S>
+<div class="w-50 mx-auto mt-5">
+  <form [formGroup]="productFrom" (ngSubmit)="onSubmit()">
+    <mat-form-field class="w-100">
+      <mat-label>Name</mat-label>
+      <input matInput id="name" type="text" formControlName="name">
+    </mat-form-field>
 
-  <label for="name">Name: </label>
-  <input id="name" type="text" formControlName="name">
+    <mat-form-field class="w-100">
+      <mat-label>Calories</mat-label>
+      <input matInput id="calories" type="text" formControlName="calories">
+    </mat-form-field>
 
-  <label for="calories">Calories: </label>
-  <input id="calories" type="text" formControlName="calories">
+    <mat-form-field class="w-100">
+      <mat-label>Total Fat</mat-label>
+      <input matInput id="total_fat" type="text" formControlName="total_fat">
+    </mat-form-field>
 
- <label for="total_fat">Total Fat: </label>
-  <input id="total_fat" type="text" formControlName="total_fat">
+    <mat-form-field class="w-100">
+      <mat-label>Cholesterol</mat-label>
+      <input matInput id="cholesterol" type="text" formControlName="cholesterol">
+    </mat-form-field>
 
- <label for="cholesterol">Cholesterol: </label>
-  <input id="cholesterol" type="text" formControlName="cholesterol">
+    <mat-form-field class="w-100">
+      <mat-label>Sodium</mat-label>
+      <input matInput id="sodium" type="text" formControlName="sodium">
+    </mat-form-field>
 
- <label for="sodium">Sodium: </label>
-  <input id="sodium" type="text" formControlName="sodium">
+    <mat-form-field class="w-100">
+      <mat-label>Total Carbohydrate</mat-label>
+      <input matInput id="total_carbohydrate" type="text" formControlName="total_carbohydrate">
+    </mat-form-field>
 
- <label for="total_carbohydrate">Total Carbohydrate: </label>
-  <input id="total_carbohydrate" type="text" formControlName="total_carbohydrate">
+    <mat-form-field class="w-100">
+      <mat-label>Protein</mat-label>
+      <input matInput id="protein" type="text" formControlName="protein">
+    </mat-form-field>
 
-  <label for="protein">Protein: </label>
-  <input id="protein" type="text" formControlName="protein">
-
-  <button type="submit">Save</button>
-
-</form>
+    <button mat-raised-button color="primary" type="submit" class="w-100">Save</button>
+  </form>
+</div>
