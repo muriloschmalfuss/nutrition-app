@@ -29,7 +29,7 @@ export class ProductService {
     return this.http.put<Product>(`${this.serverUrl}/${id}`, product);
   }
 
-  deleteProduct(id: string) {
+  deleteProduct(id: number) {
     return this.http.delete<void>(`${this.serverUrl}/${id}`);
   }
 }

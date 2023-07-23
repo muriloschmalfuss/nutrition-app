@@ -15,6 +15,11 @@ const routes: Routes = [
     path: 'add',
     component: FormComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: 'edit/:id',
+    component: FormComponent,
+    canActivate: [authGuard]
   }
 ]
 
